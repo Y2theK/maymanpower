@@ -1,11 +1,60 @@
-@import 'tailwindcss';
+@import "remixicon/fonts/remixicon.css";
+@import "tailwindcss";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@layer base {
+    body {
+        font-family: var(--font-roboto);
+    }
+}
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-primary: #023DC5;
+    --color-blue-dark: #011A53;
+    --color-blue-700: #012B8C;
+    --color-blue-300: #557DD8;
+    --color-blue-200: #8BA6E4;
+
+    --color-background: #EFEFFF;
+    --color-sidebar: #D1D0FF;
+    --color-surface: #EDEDF1;
+
+    --color-text: #191C1E;
+    --color-text-secondary: #434654;
+    --color-text-muted: #737685;
+
+    --font-poppins: "Poppins", sans-serif;
+    --font-roboto: "Roboto", sans-serif;
+    --font-manrope: "Manrope", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    
+}
+
+@utility glass {
+    @apply border border-white bg-white/30;
+}
+
+@utility glass-input {
+    @apply rounded-xl border border-white bg-white/40;
+}
+
+@media (width >= 64rem) {
+    body.sidebar-collapsed #sidebar {
+        width: 80px;
+    }
+
+    body.sidebar-collapsed #appShell {
+        margin-left: 80px;
+    }
+
+    body.sidebar-collapsed #sidebar nav a {
+        justify-content: center;
+        gap: 0;
+        padding-inline: 0;
+    }
+
+    body.sidebar-collapsed #sidebar nav a span,
+    body.sidebar-collapsed #sidebar .brand-text {
+        display: none;
+    }
 }
